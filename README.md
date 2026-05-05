@@ -1,81 +1,146 @@
-📊 Predicción de Ventas 2025 – Cadena de Ópticas
+# 📊 Forecasting de Ventas en Retail Óptico (2025)
 
-Este proyecto analiza el comportamiento histórico de ventas de una cadena de ópticas en México (2022–2024) y desarrolla un modelo predictivo capaz de estimar las ventas por sucursal para el año 2025.
-Incluye análisis exploratorio, limpieza profunda, ingeniería de características, modelado de series de tiempo y validación.
+## 🧠 Contexto de negocio
 
-🚀 Objetivo del Proyecto
+En el sector retail, particularmente en cadenas de ópticas, la planificación de inventario depende directamente de la capacidad de anticipar la demanda.
 
-Identificar patrones y tendencias en ventas mensuales.
-Evaluar el impacto de descuentos, promociones y características de sucursales.
-Detectar outliers y anomalías.
-Construir un modelo de series de tiempo (Holt-Winters) para proyectar ventas en 2025.
-Generar visualizaciones claras y un dashboard final.
+Una mala estimación puede generar:
 
-📂 Estructura del Proyecto
-📁 data
-- datos_limpios.csv       
-     
-📁 notebooks
-- Proyecto_Mas_Vision.ipynb
+* Sobreinventario → costos innecesarios
+* Quiebres de stock → pérdida de ventas
+* Mala distribución entre sucursales
 
-📁 reports
-- Presentacion_Proyecto Mas Vision.pptx  
-- Dashboard_PowerBI_Capturas.pdf    
-- Predicciones_2025.csv              
+Este proyecto simula un escenario empresarial donde se busca predecir ventas futuras para optimizar la toma de decisiones comerciales.
 
-🔍 Metodología
-1. Limpieza y Procesamiento
+---
 
-Normalización de tipos de datos
-Imputación de valores faltantes
-Consolidación de información por sucursal
-Creación de tabla calendario
+## 🎯 Objetivo
 
-2. Análisis Exploratorio (EDA)
+Desarrollar un modelo de series de tiempo que permita:
 
-Tendencias de ventas 2022–2024
-Identificación de estacionalidad
-Análisis de correlaciones
-Detección de outliers con IQR y z-score
+* Predecir las ventas para el año 2025
+* Identificar patrones de tendencia y estacionalidad
+* Generar insights accionables para optimizar inventario
 
-3. Modelado
+---
 
-Análisis de tendencia y estacionalidad
-Pruebas de distintos enfoques de forecasting
-Selección del modelo de suavizado exponencial Holt-Winters (aditivo/multiplicativo según el caso)
-Validación usando train-test split temporal y métricas de error (por ejemplo, MAE / RMSE)
+## 📂 Datos
 
-4. Predicción 2025
+* Tipo: Datos simulados de ventas retail
+* Granularidad: Serie temporal
+* Variables principales:
 
-Proyección de ventas mensuales por sucursal
-Visualización de tendencia esperada
-Exportación de resultados a CSV
+  * Fecha
+  * Ventas
 
-🛠️ Tecnologías utilizadas
+---
 
--Python
--pandas 
--numpy
--statsmodels
--scikit-learn
--matplotlib 
--seaborn
+## ⚙️ Metodología
 
--Power BI
--Power Query
--Medidas DAX
--Dashboard interactivo
+1. **Análisis exploratorio**
 
--Jupyter Notebook
+   * Identificación de tendencia y estacionalidad
+   * Visualización de patrones temporales
 
-📈 Resultados Principales
+2. **Preparación de datos**
 
-Se identificó una estacionalidad marcada en ciertos meses clave.
-Algunas sucursales presentan patrones atípicos influenciados por promociones y descuentos.
-El modelo Holt-Winters mostró mejor desempeño que otros enfoques probados, logrando errores de predicción razonables sobre el conjunto de validación.
-Las predicciones 2025 permiten planificar inventarios y metas de ventas con anticipación a nivel sucursal.
+   * Conversión a serie de tiempo
+   * División en conjunto de entrenamiento y prueba
 
-📌 Conclusión
+3. **Modelado**
 
-El proyecto demuestra el ciclo completo de un análisis profesional de series de tiempo aplicado a un negocio real: desde datos crudos hasta insights accionables y predicciones útiles para la toma de decisiones.
-La solución puede integrarse en un pipeline de forecasting mensual para actualizar las proyecciones conforme se obtienen nuevos datos.
+   * Modelo utilizado: **Holt-Winters (Triple Exponential Smoothing)**
+   * Componentes:
+
+     * Nivel
+     * Tendencia
+     * Estacionalidad
+   * Ajuste del modelo sobre datos históricos
+
+4. **Evaluación**
+
+   * MAE (Error Absoluto Medio)
+   * RMSE (Raíz del Error Cuadrático Medio)
+   * R² (Coeficiente de determinación)
+
+## 📈 Resultados
+
+* **MAE:** 231.77
+* **RMSE:** 332.84
+* **R²:** 0.68
+
+El modelo explica aproximadamente el **68% de la variabilidad** en las ventas, lo cual indica un desempeño aceptable para un escenario de forecasting en retail.
+
+---
+
+## 📊 Ejemplo de predicción vs valores reales
+
+![Predicción vs Real](images/prediccion_vs_real.png)
+
+---
+
+## 💡 Hallazgos clave
+
+1. Se identificó una **estacionalidad clara en la serie**, lo que valida el uso de Holt-Winters como modelo adecuado.
+
+2. El modelo captura correctamente la tendencia general, aunque presenta desviaciones en periodos de alta volatilidad.
+
+3. La combinación de tendencia + estacionalidad permite generar predicciones útiles para planeación de inventario a nivel agregado.
+
+---
+
+## 💼 Impacto de negocio
+
+Este modelo permite:
+
+* Planificar compras con base en demanda esperada
+* Reducir riesgo de sobreinventario
+* Anticipar periodos de alta y baja demanda
+* Mejorar la toma de decisiones en planeación comercial
+
+---
+
+## 🛠️ Tecnologías utilizadas
+
+* Python (pandas, numpy, sklearn, statsmodels)
+* Power BI
+* Jupyter Notebook
+
+---
+
+## 📁 Estructura del repositorio
+
+```
+├── notebooks/
+│   └── forecasting_ventas.ipynb
+├── images/
+│   ├── prediccion_vs_real.png
+│   └── tendencia.png
+├── dashboard/
+│   └── ventas.pbix
+└── README.md
+```
+
+---
+
+## ⚠️ Limitaciones del modelo
+
+* No incorpora variables externas (promociones, estacionalidad comercial, factores económicos)
+* Sensible a cambios abruptos en la serie
+* Desempeño limitado en picos extremos de demanda
+
+---
+
+## 📌 Conclusión
+
+El uso de modelos de series de tiempo permite transformar datos históricos en herramientas de planeación estratégica.
+
+Aunque el modelo presenta limitaciones, ofrece una base sólida para mejorar la toma de decisiones en inventario y ventas dentro del sector retail.
+
+---
+
+## 👤 Autor
+
+Eduardo de la Torre
+Data Analyst | Junior Data Scientist
+[LinkedIn](https://www.linkedin.com/in/eduardo-de-la-torre-cientifico-de-datos)
