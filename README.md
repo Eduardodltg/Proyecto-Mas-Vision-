@@ -73,10 +73,16 @@ El modelo explica aproximadamente el **68% de la variabilidad** en las ventas, l
 
 ---
 
-## 📊 Ejemplo de predicción vs valores reales
+## 📉 Dashboard (Power BI)
 
-![Predicción vs Real](images/prediccion_vs_real.png)
+### Vista general
+![Dashboard general](images/dashboard_general.png)
 
+### Análisis de tendencias
+![Dashboard tendencias](images/dashboard_general2.png)
+
+### Predicción vs real
+![Dashboard predicción](images/dashboard_general3.png)
 ---
 
 ## 💡 Hallazgos clave
