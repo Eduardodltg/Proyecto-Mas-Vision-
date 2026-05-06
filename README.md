@@ -62,26 +62,33 @@ Desarrollar un modelo de series de tiempo que permita:
    * MAE (Error Absoluto Medio)
    * RMSE (Raíz del Error Cuadrático Medio)
    * R² (Coeficiente de determinación)
-
+  
 ## 📈 Resultados
 
-* **MAE:** 231.77
-* **RMSE:** 332.84
-* **R²:** 0.68
+El modelo Holt-Winters logró capturar tanto la tendencia como la estacionalidad de la serie de ventas.
 
-El modelo explica aproximadamente el **68% de la variabilidad** en las ventas, lo cual indica un desempeño aceptable para un escenario de forecasting en retail.
+- MAE: 231.77  
+- RMSE: 332.84  
+- R²: 0.68  
+
+Esto indica que el modelo explica aproximadamente el 68% de la variabilidad en las ventas, siendo adecuado para escenarios de planeación en retail.
 
 ---
 
 ## 📉 Dashboard (Power BI)
 
+Se desarrolló un dashboard para facilitar la toma de decisiones comerciales.
+
 ### Vista general
+Muestra KPIs clave como ventas totales y crecimiento.
 ![Dashboard general](images/dashboard_general.png)
 
 ### Análisis de tendencias
+Permite identificar patrones de comportamiento en el tiempo.
 ![Dashboard tendencias](images/dashboard_general2.png)
 
 ### Predicción vs real
+Permite evaluar el desempeño del modelo.
 ![Dashboard predicción](images/dashboard_general3.png)
 ---
 
@@ -94,15 +101,14 @@ El modelo explica aproximadamente el **68% de la variabilidad** en las ventas, l
 3. La combinación de tendencia + estacionalidad permite generar predicciones útiles para planeación de inventario a nivel agregado.
 
 ---
-
 ## 💼 Impacto de negocio
 
 Este modelo permite:
 
-* Planificar compras con base en demanda esperada
-* Reducir riesgo de sobreinventario
-* Anticipar periodos de alta y baja demanda
-* Mejorar la toma de decisiones en planeación comercial
+- Reducir riesgo de sobreinventario
+- Anticipar demanda futura
+- Optimizar decisiones de compra
+- Mejorar planeación comercial
 
 ---
 
